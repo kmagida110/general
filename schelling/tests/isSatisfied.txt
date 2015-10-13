@@ -1,0 +1,61 @@
+# test driver for Schelling.isSatisfied
+# testname gridFileName R threshold i j color expectedResult
+
+########### test top and left boundaries ###########
+
+# (1,1) w/ R=1 has 4 neighbors, 
+# 2 with the same color as (1,1)
+# remember that the homeowner counts
+# as his own neighbor
+test0 tests/grid4.txt 1 0.45  1 1 true
+test1 tests/grid4.txt 1 0.55  1 1 false
+
+# (1,1) w/ R=2 has 9 neighbors
+# 4 with the same color as (1,1)
+test2 tests/grid4.txt 2 0.40  1 1 true
+test3 tests/grid4.txt 2 0.45  1 1 false
+
+# (1,1) w/ R=2 has 14 neighbors
+# 7 with the same color as (1,1)
+test4 tests/grid4.txt 3 0.50  1 1 true
+test5 tests/grid4.txt 3 0.51  1 1 false
+
+
+########### test center ###########
+
+# (2,2) w/ R=1 has 5 neighbors
+# 3 with the same color as (2,2)
+test6 tests/grid4.txt 1 0.60  2 2 true
+test7 tests/grid4.txt 1 0.65  2 2 false
+
+# (2,2) w/ R=2 has 11 neighbors
+# 4 with the same color as (2,2)
+test8 tests/grid4.txt 2 0.54  2 2 true
+test9 tests/grid4.txt 2 0.56  2 2 false
+
+# (2,2) w/ R=3 has 17 neighbors
+# 9 with the same color as (2,2)
+test10 tests/grid4.txt 3 0.52  2 2 true
+test11 tests/grid4.txt 3 0.54  2 2 false
+
+
+########### test right and bottom boundaries ###########
+
+# (3,4) w/ R=1 has 2 neighbors
+# 1 with the same color as (3,4)
+test12 tests/grid4.txt 1 0.50  3 4 true
+test13 tests/grid4.txt 1 0.55  3 4 false
+
+# (3,4) w/ R=2 has 6 neighbors
+# 3 with the same color as (3,4)
+test14 tests/grid4.txt 2 0.50  3 4 true
+test15 tests/grid4.txt 2 0.55  3 4 false
+
+# (3,4) w/ R=1 has 11 neighbors
+# 9 with the same color as (3,4)
+test16 tests/grid4.txt 3 0.45  3 4 true
+test17 tests/grid4.txt 3 0.50  3 4 false
+
+########### lone homeowner ##########
+test18 tests/grid5.txt 1 1.0 2 2 true
+

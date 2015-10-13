@@ -1,0 +1,38 @@
+# 20 points available
+# all tests for Schelling.doSimulation
+# testname inputGrid R threshold maxSteps expectedGrid
+
+########## Grid from asssignment description ##############
+
+# full example from assignment description
+test0 tests/grid4.txt 1 0.51 3 tests/grid4-after-move-7.txt
+
+# example from assignment description through the end of one step
+test1 tests/grid4.txt 1 0.51 1 tests/grid4-after-move-4.txt
+
+# example from assignment description R is zero
+# homeowners always satisfied
+test2 tests/grid4.txt 0 1.0 1 tests/grid4.txt
+
+# example from assignment description threshold is zero
+# homeowners always satisfied
+test3 tests/grid4.txt 0 1.0 1 tests/grid4.txt
+
+# R = 2
+test4 tests/grid4.txt 2 .51 5 tests/grid4-2-51-5-expected-result.txt
+
+########## Other small grid ##############
+# unbalanced, end with one unhappy no matter how many iterations
+test5 tests/grid1.txt 1 .75 5 tests/grid1-1-75-5-expected-result.txt
+
+########## Large grids ##############
+# balanced city, many open homes
+test6 tests/grid-150-40-40.txt 2 .40 10 tests/grid-150-40-40-2-40-10-expected-result.txt
+
+test7 tests/grid-150-40-40.txt 1 .33 10 tests/grid-150-40-40-1-33-10-expected-result.txt
+
+# balanced city, few open homes
+test8 tests/grid-150-4975-4975.txt 2 .40 10 tests/grid-150-4975-4975-2-40-10-expected-result.txt
+
+# unbalanced city, many open homes
+test9 tests/grid-150-30-60.txt 2 .40 3 tests/grid-150-30-60-2-40-3-expected-result.txt
